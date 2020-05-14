@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	Title="{Binding PageTitle}"
+	x:Class="ClientManagement.views.AddClientPage">
+	<ContentPage.Content>
+		<ScrollView>
+			<StackLayout Margin="10" Spacing="10">
+
+				<StackLayout Spacing="0">
+					<StackLayout Orientation="Horizontal" Padding="0">
+						<Label
+							Text="&#xf4ff;"
+							Style="{StaticResource AwesomeStyle}"
+							FontSize="30" />
+						<Label
+							Text="Profile"
+							FontSize="Large"
+							VerticalOptions="CenterAndExpand" />
+					</StackLayout>
+					<StackLayout
+						BindingContext="{Binding Client}"
+						Orientation="Horizontal"
+						HorizontalOptions="FillAndExpand">
+						<Entry
+							Text="{Binding FirstName, Mode=TwoWay}"
+							Placeholder="First Name"
+							x:Name="first"
+							ReturnType="Next"
+							HorizontalOptions="FillAndExpand" />
+						<Entry
+							Text="{Binding LastName, Mode=TwoWay}"
+							Placeholder="Last Name"
+							x:Name="last"
+							ReturnType="Next"
+							HorizontalOptions="FillAndExpand" />
+					</StackLayout>
+				</StackLayout>
+
+				<StackLayout Spacing="0">
+					<StackLayout Orientation="Horizontal">
+						<Label
+							Text="&#xf05a;"
+							Style="{StaticResource AwesomeStyle}"
+							FontSize="30" />
+						<Label
+							Text="Description"
+							FontSize="Large"
+							VerticalOptions="CenterAndExpand" />
+					</StackLayout>
+					<StackLayout
+						BindingContext="{Binding Client}"
+						Orientation="Horizontal"
+						HorizontalOptions="FillAndExpand">
+						<Entry
+							Text="{Binding Description, Mode=TwoWay}"
+							Placeholder="Description"
+							x:Name="desc"
+							ReturnType="Next"
+							HorizontalOptions="FillAndExpand" />
+					</StackLayout>
+				</StackLayout>
+
+				<StackLayout Spacing="0">
+					<StackLayout Orientation="Horizontal">
+						<Label
+							Text="&#xf5a0;"
+							Style="{StaticResource AwesomeStyle}"
+							FontSize="30" />
+						<Label
+							Text="Address"
+							FontSize="Large"
+							VerticalOptions="CenterAndExpand" />
+					</StackLayout>
+					<StackLayout BindingContext="{Binding Client.Address}">
+						<Entry
+							Text="{Binding Street, Mode=TwoWay}"
+							Placeholder="Street"
+							x:Name="street"
+							ReturnType="Next"
+							HorizontalOptions="FillAndExpand" />
+
+						<StackLayout Orientation="Horizontal">
+							<Entry
+								Text="{Binding City, Mode=TwoWay}"
+								Placeholder="City"
+								x:Name="city"
+								ReturnType="Next"
+								HorizontalOptions="FillAndExpand" />
+							<Entry
+								Text="{Binding State, Mode=TwoWay}"
+								Placeholder="State"
+								x:Name="state"
+								ReturnType="Next"
+								HorizontalOptions="FillAndExpand" />
+							<Entry
+								WidthRequest="70"
+								Text="{Binding PostalCode, Mode=TwoWay}"
+								Placeholder="Zip Code"
+								x:Name="zip"
+								ReturnType="Next"
+								Keyboard="Numeric"
+								HorizontalOptions="End" />
+						</StackLayout>
+					</StackLayout>
+				</StackLayout>
+
+				<StackLayout Spacing="0" BindingContext="{Binding Client.Address}">
+					<StackLayout Orientation="Horizontal">
+						<Label
+							Text="&#xf87b;"
+							Style="{StaticResource AwesomeStyle}"
+							FontSize="30" />
+						<Label
+							Text="Phone"
+							FontSize="Large"
+							VerticalOptions="CenterAndExpand" />
+					</StackLayout>
+					<StackLayout Margin="5" Spacing="0">
+						<StackLayout Orientation="Horizontal">
+							<Label
+								Text="&#xf015;"
+								Style="{StaticResource AwesomeStyle}"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								HorizontalOptions="Center"
+								WidthRequest="20"
+								VerticalOptions="CenterAndExpand"
+								TextColor="LightGray" />
+							<Entry
+								VerticalOptions="CenterAndExpand"
+								Text="{Binding Landline, Mode=TwoWay}"
+								Placeholder="Home Phone"
+								x:Name="hphone"
+								ReturnType="Next"
+								Keyboard="Telephone"
+								HorizontalOptions="FillAndExpand" />
+						</StackLayout>
+
+						<StackLayout Orientation="Horizontal">
+							<Label
+								Text="&#xf3cd;"
+								Style="{StaticResource AwesomeStyle}"
+								FontSize="20"
+								HorizontalOptions="Center"
+								HorizontalTextAlignment="Center"
+								WidthRequest="20"
+								VerticalOptions="CenterAndExpand"
+								TextColor="LightGray" />
+							<Entry
+								VerticalOptions="CenterAndExpand"
+								Text="{Binding Mobile, Mode=TwoWay}"
+								Placeholder="Mobile Phone"
+								Keyboard="Telephone"
+								ReturnType="Next"
+								x:Name="mobile"
+								HorizontalOptions="FillAndExpand" />
+						</StackLayout>
+
+						<StackLayout Orientation="Horizontal">
+							<Label
+								Text="&#xf0b1;"
+								Style="{StaticResource AwesomeStyle}"
+								FontSize="20"
+								WidthRequest="20"
+								HorizontalTextAlignment="Center"
+								HorizontalOptions="Center"
+								VerticalOptions="CenterAndExpand"
+								TextColor="LightGray" />
+							<Entry
+								VerticalOptions="CenterAndExpand"
+								Text="{Binding WorkPhone, Mode=TwoWay}"
+								Placeholder="Work Phone"
+								Keyboard="Telephone"
+								x:Name="wphone"
+								HorizontalOptions="FillAndExpand" />
+						</StackLayout>
+					</StackLayout>
+				</StackLayout>
+
+				<Button
+					Text="Save"
+					Command="{Binding SaveCommand}"
+					VerticalOptions="EndAndExpand"
+					HorizontalOptions="FillAndExpand" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

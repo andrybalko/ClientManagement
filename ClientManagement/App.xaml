@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="ClientManagement.App">
+	<Application.Resources>
+		<ResourceDictionary>
+
+			<OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
+				<On Platform="Android" Value="FontAwesome5Free-Solid-900.otf#Font Awesome 5 Free Solid" />
+				<On Platform="iOS" Value="Font Awesome 5 Free" />
+			</OnPlatform>
+
+			<Style TargetType="Label" x:Key="AwesomeStyle">
+				<Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolid}" />
+				<Setter Property="FontAttributes" Value="Bold" />
+				<Setter Property="FontSize" Value="22" />
+			</Style>
+		</ResourceDictionary>
+	</Application.Resources>
+
+</Application>
