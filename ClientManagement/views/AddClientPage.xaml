@@ -11,10 +11,10 @@
 		<ScrollView>
 			<StackLayout Margin="10" Spacing="10">
 
-				<StackLayout Spacing="0">
+				<StackLayout Spacing="3">
 					<StackLayout Orientation="Horizontal" Padding="0">
 						<Label
-							Text="&#xf4ff;"
+							Text="&#xf4ff;" TextColor="Gray"
 							Style="{StaticResource AwesomeStyle}"
 							FontSize="30" />
 						<Label
@@ -41,10 +41,10 @@
 					</StackLayout>
 				</StackLayout>
 
-				<StackLayout Spacing="0">
+				<StackLayout Spacing="3">
 					<StackLayout Orientation="Horizontal">
 						<Label
-							Text="&#xf05a;"
+							Text="&#xf05a;" TextColor="Gray"
 							Style="{StaticResource AwesomeStyle}"
 							FontSize="30" />
 						<Label
@@ -65,10 +65,10 @@
 					</StackLayout>
 				</StackLayout>
 
-				<StackLayout Spacing="0">
+				<StackLayout Spacing="3">
 					<StackLayout Orientation="Horizontal">
 						<Label
-							Text="&#xf5a0;"
+							Text="&#xf5a0;" TextColor="Gray"
 							Style="{StaticResource AwesomeStyle}"
 							FontSize="30" />
 						<Label
@@ -112,7 +112,7 @@
 				<StackLayout Spacing="0" BindingContext="{Binding Client.Address}">
 					<StackLayout Orientation="Horizontal">
 						<Label
-							Text="&#xf87b;"
+							Text="&#xf87b;" TextColor="Gray"
 							Style="{StaticResource AwesomeStyle}"
 							FontSize="30" />
 						<Label
