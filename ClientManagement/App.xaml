@@ -9,10 +9,13 @@
 	<Application.Resources>
 		<ResourceDictionary>
 
-			<OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
+
+            <OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
 				<On Platform="Android" Value="FontAwesome5Free-Solid-900.otf#Font Awesome 5 Free Solid" />
 				<On Platform="iOS" Value="Font Awesome 5 Free" />
 			</OnPlatform>
+
+			
 
 			<Style TargetType="Label" x:Key="AwesomeStyle">
 				<Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolid}" />

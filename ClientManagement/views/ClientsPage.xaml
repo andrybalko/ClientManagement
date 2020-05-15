@@ -17,30 +17,30 @@
 			<Grid BackgroundColor="DarkBlue" HeightRequest="70">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
-					<ColumnDefinition Width="80" />
+					<ColumnDefinition Width="90" />
 				</Grid.ColumnDefinitions>
 				<Label
 					Text="Client"
 					FontAttributes="Bold"
-					Grid.Column="0"
+					Grid.Column="0" FontSize="Small"
 					VerticalOptions="Center"
 					Margin="70,0,0,0"
 					TextColor="White" />
 				<StackLayout
 					Orientation="Horizontal"
 					Grid.Column="1"
-					Margin="0,0,25,0">
+					Margin="0,0,20,0">
 					<StackLayout.GestureRecognizers>
 						<TapGestureRecognizer Command="{Binding ChangeSortCommand}" />
 					</StackLayout.GestureRecognizers>
 					<Label
-						Text="Created"
+						Text="Created" FontSize="Small"
 						FontAttributes="Bold"
 						HorizontalOptions="Start"
 						VerticalOptions="Center"
 						TextColor="White" />
 					<Label
-						x:Name="arrow"
+						x:Name="arrow" Margin="0"
 						Text="{Binding Sorting}"
 						VerticalOptions="Center"
 						TextColor="White"
@@ -82,7 +82,7 @@
 										AbsoluteLayout.LayoutBounds="0,0,1,1"
 										Text="&#xf2bd;"
 										Style="{StaticResource AwesomeStyle}"
-										FontSize="45"
+										FontSize="40"
 										TextColor="LightGray"
 										HorizontalOptions="CenterAndExpand"
 										VerticalOptions="CenterAndExpand" />
@@ -95,7 +95,9 @@
 										BorderThickness="1"
 										HeightRequest="40"
 										Source="{Binding Avatar}"
-										Aspect="AspectFill" />
+										Aspect="AspectFill"
+                                        HorizontalOptions="CenterAndExpand"
+										VerticalOptions="CenterAndExpand" />
 								</AbsoluteLayout>
 
 								<Label
@@ -115,7 +117,7 @@
 
 								<Label
 									Text="{Binding Created, StringFormat='{0:MM/dd/yyyy}'}"
-									Grid.Column="2"
+									Grid.Column="2" FontSize="Small"
 									HorizontalTextAlignment="End"
 									HorizontalOptions="EndAndExpand"
 									Grid.Row="0"
