@@ -9,6 +9,7 @@ using ClientManagement.models;
 using ClientManagement.models.stub;
 using ClientManagement.views;
 using Xamarin.Forms;
+using Plugin.SharedTransitions;
 
 namespace ClientManagement.viewModels
 {

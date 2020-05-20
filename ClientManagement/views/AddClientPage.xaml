@@ -3,23 +3,26 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d"
 	Title="{Binding PageTitle}"
 	x:Class="ClientManagement.views.AddClientPage">
 	<ContentPage.Content>
 		<ScrollView>
-			<StackLayout Margin="10" Spacing="10">
+			<StackLayout Margin="10" Spacing="15">
 
 				<StackLayout Spacing="3">
-					<StackLayout Orientation="Horizontal" Padding="0">
+					<StackLayout Orientation="Horizontal" Spacing="15">
 						<Label
-							Text="&#xf4ff;" TextColor="Gray"
+							Text="&#xf4ff;"
+							TextColor="{StaticResource DarkBlue}"
 							Style="{StaticResource AwesomeStyle}"
-							FontSize="30" />
+							FontSize="20" />
 						<Label
 							Text="Profile"
-							FontSize="Large"
+							Style="{StaticResource BoldLabel}"
+							FontSize="18"
 							VerticalOptions="CenterAndExpand" />
 					</StackLayout>
 					<StackLayout
@@ -30,26 +33,30 @@
 							Text="{Binding FirstName, Mode=TwoWay}"
 							Placeholder="First Name"
 							x:Name="first"
+							Style="{StaticResource RobotoEntry}"
 							ReturnType="Next"
 							HorizontalOptions="FillAndExpand" />
 						<Entry
 							Text="{Binding LastName, Mode=TwoWay}"
 							Placeholder="Last Name"
 							x:Name="last"
+							Style="{StaticResource RobotoEntry}"
 							ReturnType="Next"
 							HorizontalOptions="FillAndExpand" />
 					</StackLayout>
 				</StackLayout>
 
 				<StackLayout Spacing="3">
-					<StackLayout Orientation="Horizontal">
+					<StackLayout Orientation="Horizontal" Spacing="15">
 						<Label
-							Text="&#xf05a;" TextColor="Gray"
+							Text="&#xf05a;"
+							TextColor="{StaticResource DarkBlue}"
 							Style="{StaticResource AwesomeStyle}"
-							FontSize="30" />
+							FontSize="20" />
 						<Label
 							Text="Description"
-							FontSize="Large"
+							Style="{StaticResource BoldLabel}"
+							FontSize="18"
 							VerticalOptions="CenterAndExpand" />
 					</StackLayout>
 					<StackLayout
@@ -60,27 +67,33 @@
 							Text="{Binding Description, Mode=TwoWay}"
 							Placeholder="Description"
 							x:Name="desc"
+							sharedTransitions:Transition.Name="desc"
+							Style="{StaticResource RobotoEntry}"
 							ReturnType="Next"
 							HorizontalOptions="FillAndExpand" />
 					</StackLayout>
 				</StackLayout>
 
 				<StackLayout Spacing="3">
-					<StackLayout Orientation="Horizontal">
+					<StackLayout Orientation="Horizontal" Spacing="15">
 						<Label
-							Text="&#xf5a0;" TextColor="Gray"
+							Text="&#xf3c5;"
+							TextColor="{StaticResource DarkBlue}"
 							Style="{StaticResource AwesomeStyle}"
-							FontSize="30" />
+							FontSize="20" />
 						<Label
 							Text="Address"
-							FontSize="Large"
+							Style="{StaticResource BoldLabel}"
+							FontSize="18"
 							VerticalOptions="CenterAndExpand" />
 					</StackLayout>
 					<StackLayout BindingContext="{Binding Client.Address}">
 						<Entry
 							Text="{Binding Street, Mode=TwoWay}"
 							Placeholder="Street"
+							sharedTransitions:Transition.Name="street"
 							x:Name="street"
+							Style="{StaticResource RobotoEntry}"
 							ReturnType="Next"
 							HorizontalOptions="FillAndExpand" />
 
@@ -88,20 +101,26 @@
 							<Entry
 								Text="{Binding City, Mode=TwoWay}"
 								Placeholder="City"
+								sharedTransitions:Transition.Name="city"
+								Style="{StaticResource RobotoEntry}"
 								x:Name="city"
 								ReturnType="Next"
 								HorizontalOptions="FillAndExpand" />
 							<Entry
 								Text="{Binding State, Mode=TwoWay}"
 								Placeholder="State"
+								sharedTransitions:Transition.Name="state"
 								x:Name="state"
+								Style="{StaticResource RobotoEntry}"
 								ReturnType="Next"
 								HorizontalOptions="FillAndExpand" />
 							<Entry
 								WidthRequest="70"
 								Text="{Binding PostalCode, Mode=TwoWay}"
 								Placeholder="Zip Code"
+								sharedTransitions:Transition.Name="zip"
 								x:Name="zip"
+								Style="{StaticResource RobotoEntry}"
 								ReturnType="Next"
 								Keyboard="Numeric"
 								HorizontalOptions="End" />
@@ -109,33 +128,37 @@
 					</StackLayout>
 				</StackLayout>
 
-				<StackLayout Spacing="0" BindingContext="{Binding Client.Address}">
-					<StackLayout Orientation="Horizontal">
+				<StackLayout Spacing="5" BindingContext="{Binding Client.Address}">
+					<StackLayout Orientation="Horizontal" Spacing="15">
 						<Label
-							Text="&#xf87b;" TextColor="Gray"
+							Text="&#xf3cd;"
+							TextColor="{StaticResource DarkBlue}"
 							Style="{StaticResource AwesomeStyle}"
-							FontSize="30" />
+							FontSize="20" />
 						<Label
 							Text="Phone"
-							FontSize="Large"
+							Style="{StaticResource BoldLabel}"
+							FontSize="18"
 							VerticalOptions="CenterAndExpand" />
 					</StackLayout>
-					<StackLayout Margin="5" Spacing="0">
+					<StackLayout Margin="25,5" Spacing="0">
 						<StackLayout Orientation="Horizontal">
 							<Label
 								Text="&#xf015;"
+								TextColor="{StaticResource Blue}"
 								Style="{StaticResource AwesomeStyle}"
 								FontSize="20"
 								HorizontalTextAlignment="Center"
 								HorizontalOptions="Center"
 								WidthRequest="20"
-								VerticalOptions="CenterAndExpand"
-								TextColor="LightGray" />
+								VerticalOptions="CenterAndExpand" />
 							<Entry
 								VerticalOptions="CenterAndExpand"
 								Text="{Binding Landline, Mode=TwoWay}"
 								Placeholder="Home Phone"
 								x:Name="hphone"
+								sharedTransitions:Transition.Name="landline"
+								Style="{StaticResource RobotoEntry}"
 								ReturnType="Next"
 								Keyboard="Telephone"
 								HorizontalOptions="FillAndExpand" />
@@ -144,17 +167,19 @@
 						<StackLayout Orientation="Horizontal">
 							<Label
 								Text="&#xf3cd;"
+								TextColor="{StaticResource Blue}"
 								Style="{StaticResource AwesomeStyle}"
 								FontSize="20"
 								HorizontalOptions="Center"
 								HorizontalTextAlignment="Center"
 								WidthRequest="20"
-								VerticalOptions="CenterAndExpand"
-								TextColor="LightGray" />
+								VerticalOptions="CenterAndExpand" />
 							<Entry
 								VerticalOptions="CenterAndExpand"
 								Text="{Binding Mobile, Mode=TwoWay}"
 								Placeholder="Mobile Phone"
+								sharedTransitions:Transition.Name="mobile"
+								Style="{StaticResource RobotoEntry}"
 								Keyboard="Telephone"
 								ReturnType="Next"
 								x:Name="mobile"
@@ -170,12 +195,14 @@
 								HorizontalTextAlignment="Center"
 								HorizontalOptions="Center"
 								VerticalOptions="CenterAndExpand"
-								TextColor="LightGray" />
+								TextColor="{StaticResource Blue}" />
 							<Entry
 								VerticalOptions="CenterAndExpand"
 								Text="{Binding WorkPhone, Mode=TwoWay}"
 								Placeholder="Work Phone"
+								sharedTransitions:Transition.Name="work"
 								Keyboard="Telephone"
+								Style="{StaticResource RobotoEntry}"
 								x:Name="wphone"
 								HorizontalOptions="FillAndExpand" />
 						</StackLayout>
@@ -184,6 +211,8 @@
 
 				<Button
 					Text="Save"
+					Style="{StaticResource AccentButton}"
+					FontAttributes="Bold"
 					Command="{Binding SaveCommand}"
 					VerticalOptions="EndAndExpand"
 					HorizontalOptions="FillAndExpand" />

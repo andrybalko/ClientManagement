@@ -1,6 +1,7 @@
 ﻿using System;
 using ClientManagement.viewModels;
 using ClientManagement.views;
+using Plugin.SharedTransitions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,7 +13,10 @@ namespace ClientManagement
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage( new ClientsPage() { BindingContext = new ClientsViewModel()});
+			MainPage = new SharedTransitionNavigationPage(new ClientsPage() { BindingContext = new ClientsViewModel() })
+			{
+				BarTextColor = Color.FromHex("#FFAA00"),
+			};
 		}
 
 		protected override void OnStart()

@@ -4,6 +4,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
 	xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
 	mc:Ignorable="d"
 	Title="{Binding Client.FullName}"
@@ -17,38 +18,78 @@
 	<ContentPage.Content>
 		<StackLayout Margin="30">
 			<abstractions:CircleImage
-				WidthRequest="100"
-				BorderThickness="1"
+				WidthRequest="150"
+				BorderThickness="0"
 				BorderColor="LightBlue"
-				HeightRequest="100"
+				sharedTransitions:Transition.Name="thumb"
+				HeightRequest="150"
 				Source="{Binding Client.Avatar}"
 				Aspect="AspectFill"
 				HorizontalOptions="CenterAndExpand" />
 
-			<Label Text="{Binding Client.Description}" />
+			<Label
+				Margin="0,10"
+				Text="{Binding Client.Description}"
+				sharedTransitions:Transition.Name="desc"
+				TextColor="{StaticResource DarkBlue2}"
+				Style="{StaticResource RobotoLabel}"
+				HorizontalTextAlignment="Center" />
 
 			<StackLayout
 				BindingContext="{Binding Client.Address}"
 				Orientation="Horizontal"
 				Padding="0,50,0,0">
-				<StackLayout HorizontalOptions="FillAndExpand">
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					Orientation="Horizontal"
+					Spacing="10">
 					<Label
-						Text="&#xf5a0;"
+						Text="&#xf3c5;"
+						TextColor="{StaticResource DarkBlue}"
 						Style="{StaticResource AwesomeStyle}"
-						FontSize="30" />
-					<Label Text="{Binding Street}" />
-					<Label Text="{Binding City}" />
-					<Label Text="{Binding State}" />
-					<Label Text="{Binding PostalCode}" />
+						FontSize="20" />
+					<StackLayout>
+						<Label
+							Text="{Binding Street}"
+							Style="{StaticResource RobotoLabel}"
+							sharedTransitions:Transition.Name="street" />
+						<Label
+							Text="{Binding City}"
+							Style="{StaticResource RobotoLabel}"
+							sharedTransitions:Transition.Name="city" />
+						<Label
+							Text="{Binding State}"
+							Style="{StaticResource RobotoLabel}"
+							sharedTransitions:Transition.Name="state" />
+						<Label
+							Text="{Binding PostalCode}"
+							Style="{StaticResource RobotoLabel}"
+							sharedTransitions:Transition.Name="zip" />
+					</StackLayout>
 				</StackLayout>
-				<StackLayout HorizontalOptions="FillAndExpand">
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					Orientation="Horizontal"
+					Spacing="10">
 					<Label
-						Text="&#xf87b;"
+						Text="&#xf3cd;"
+						TextColor="{StaticResource DarkBlue}"
 						Style="{StaticResource AwesomeStyle}"
-						FontSize="30" />
-					<Label Text="{Binding Mobile}" />
-					<Label Text="{Binding Landline}" />
-					<Label Text="{Binding WorkPhone}" />
+						FontSize="20" />
+					<StackLayout>
+						<Label
+							Text="{Binding Mobile}"
+							Style="{StaticResource RobotoLabel}"
+							sharedTransitions:Transition.Name="mobile" />
+						<Label
+							Text="{Binding Landline}"
+							Style="{StaticResource RobotoLabel}"
+							sharedTransitions:Transition.Name="landline" />
+						<Label
+							Text="{Binding WorkPhone}"
+							Style="{StaticResource RobotoLabel}"
+							sharedTransitions:Transition.Name="work" />
+					</StackLayout>
 				</StackLayout>
 			</StackLayout>
 
